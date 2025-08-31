@@ -1,10 +1,3 @@
-Com certeza\! Um `README.md` com estilo é a "vitrine" do seu repositório de projetos. Ele deve ser informativo, bem organizado e visualmente agradável.
-
-Dado que o seu código é uma coleção de vários exercícios excelentes, vou criar um `README.md` que funcione como um **portfólio**, apresentando cada um dos seus scripts como um mini-projeto.
-
-Copie e cole o texto abaixo num novo ficheiro chamado `README.md` na pasta do seu projeto.
-
------
 
 ````markdown
 <p align="center">
