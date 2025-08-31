@@ -482,21 +482,248 @@ else:
 
 
 
+
+# ---------------------------------------------------------------------------
+#        PROJETO: Demonstração de Concatenação de Listas de Produtos
+#        AUTOR: Weslley Soares
+#        DATA: 31/08/2025
+#        DESCRIÇÃO: Este script demonstra como combinar (concatenar)
+#                   múltiplas listas em Python para formar uma única lista
+#                   agregada, representando um estoque total.
+# ---------------------------------------------------------------------------
+
+
+# ---  DEFINIÇÃO DAS LISTAS DE PRODUTOS ---
+
+# Listas representando o estoque de diferentes secções, fornecedores ou caixas.
 produtos_a = ["banana", "maçã"]
 produtos_b = ["laranja", "pera"]
 produtos_c = ["laranja", "banana", "maçã", "romã"]
 
-print(f"Lista (A) tem : {len(produtos_a)}" )
-print(f"Lista (b) tem : {len(produtos_b)}" )
-print(f"Lista (c) tem : {len(produtos_c)}" )
+
+# ---  ANÁLISE INICIAL DOS ESTOQUES ---
+
+# Usamos a função len() para verificar o número de itens em cada lista individual.
+# A f-string (f"...") permite formatar a saída de forma legível.
+print("--- Análise dos Estoques Individuais ---")
+print(f"Lista (A) tem : {len(produtos_a)} itens" )
+print(f"Lista (B) tem : {len(produtos_b)} itens" )
+print(f"Lista (C) tem : {len(produtos_c)} itens" )
 
 
+# ---  COMBINAÇÃO DOS ESTOQUES ---
+
+# O operador '+' quando usado com listas, serve para concatená-las (juntá-las).
+# Ele cria uma NOVA lista contendo todos os elementos das listas originais,
+# na ordem em que aparecem na operação.
 estoque_total = produtos_a + produtos_b + produtos_c
 
-print(f"Lista (Total) tem : {len(estoque_total)}" )
 
+# ---  RESULTADO FINAL ---
+
+print("\n--- Análise do Estoque Consolidado ---")
+# Exibe o tamanho total do novo estoque combinado.
+print(f"O Estoque Total (combinado) tem: {len(estoque_total)} itens" )
+
+# Exibe a lista completa do estoque, incluindo itens duplicados que
+# aparecem nas listas originais (ex: "banana", "maçã", "laranja").
+print("Itens no Estoque Total:")
 print(estoque_total)
 
+# --- FIM DO SCRIPT ---
 
 # %%
 
+
+# ---------------------------------------------------------------------------
+#        PROJETO: Módulo de Verificação de Boletos Vencidos
+#        AUTOR: Weslley Soares
+#        DATA: 31/08/2025
+#        DESCRIÇÃO: Este script analisa uma lista de datas de vencimento
+#                   de boletos e classifica cada um como "vencido",
+#                   "vence hoje" ou "dentro do prazo", com base em uma
+#                   data atual fixa.
+# ---------------------------------------------------------------------------
+
+
+# --- CONFIGURAÇÃO E DADOS INICIAIS ---
+
+# Define a data de referência para a verificação.
+data_atual = "2025-08-12"
+
+# Lista com as datas de vencimento dos boletos a serem analisados.
+# Adicionei mais alguns para um teste mais completo.
+boletos = [
+    "2025-08-05",  # vencido
+    "2025-08-12",  # vence hoje
+    "2025-08-15",  # ainda válido
+    "2025-08-01",  # vencido
+    "2025-09-01",  # ainda válido
+]
+
+# Inicializa um contador para saber o total de boletos vencidos.
+total_vencidos = 0
+
+print(f"--- Relatório de Boletos (Data de Referência: {data_atual}) ---")
+
+
+# ---  PROCESSAMENTO E CLASSIFICAÇÃO DOS BOLETOS ---
+
+# Usamos um laço 'for' para percorrer cada boleto na lista.
+# A função 'enumerate(boletos, start=1)' é uma forma elegante de obter
+# tanto o item da lista (a data) quanto um número de ordem (começando em 1).
+for numero_boleto, data_vencimento in enumerate(boletos, start=1):
+
+    # Estrutura condicional para comparar a data de vencimento com a data atual.
+    if data_vencimento < data_atual:
+        situacao = "Vencido"
+        # Se o boleto está vencido, incrementamos o nosso contador.
+        total_vencidos += 1
+    elif data_vencimento == data_atual:
+        situacao = "Vence hoje"
+    else: # Se não for menor nem igual, só pode ser maior.
+        situacao = "Dentro do prazo"
+
+    # Exibe o resultado formatado para cada boleto.
+    print(f"Boleto: {numero_boleto} | Vencimento: {data_vencimento} | Situação: {situacao}")
+
+
+# ---  EXIBIÇÃO DO RESUMO FINAL ---
+
+# Após o loop terminar, exibe a contagem total de boletos vencidos.
+print("\n--- Resumo ---")
+print(f"Total de boletos vencidos: {total_vencidos}")
+
+# --- FIM DO SCRIPT ---
+
+        
+# %%
+
+# ---------------------------------------------------------------------------
+#        EXERCÍCIO: Decodificar Mensagem Cifrada (Cifra de César)
+#        AUTOR: Weslley Soares
+#        DATA: 31/08/2025
+#        DESCRIÇÃO: Este script decifra uma mensagem encriptada usando a
+#                   Cifra de César com uma chave calculada e regras
+#                   específicas de decifragem por palavra.
+# ---------------------------------------------------------------------------
+
+
+# ---  DADOS INICIAIS ---
+
+texto_cifrado = "SbwKrQ eh phokRu q MDydvfulsW"
+
+
+# ---  CÁLCULO DA CHAVE DE DECIFRAGEM ---
+
+# A chave é o número de vezes que 'D', 'd' e 'W' aparecem.
+# Usamos o método .count() para encontrar as ocorrências.
+chave = texto_cifrado.count('D') + texto_cifrado.count('d') + texto_cifrado.count('W')
+
+print(f"Analisando texto cifrado: '{texto_cifrado}'")
+print(f"Chave de decifragem calculada: {chave}")
+
+
+# ---  PROCESSO DE DECIFRAGEM ---
+
+mensagem_decifrada = ""
+palavra_atual = ""
+
+# Adicionamos um espaço no final do texto cifrado para garantir
+# que a última palavra também seja processada dentro do loop.
+for caractere in texto_cifrado + " ":
+    
+    # Se o caractere não for um espaço, continuamos a construir a palavra atual.
+    if caractere != " ":
+        palavra_atual += caractere
+    
+    # Se encontrarmos um espaço, significa que terminámos de ler uma palavra.
+    # É hora de processá-la.
+    else:
+        palavra_decifrada = ""
+        
+        # Regra: Só deciframos palavras com mais de 3 caracteres.
+        if len(palavra_atual) > 3:
+            # Percorremos cada letra da palavra a ser decifrada.
+            for letra in palavra_atual:
+                # Obtemos o código numérico da letra (Unicode).
+                codigo_letra = ord(letra)
+                
+                # Deslocamos o código para trás (subtraímos a chave).
+                novo_codigo = codigo_letra - chave
+                
+                # Verificação de "wrap-around" (dar a volta no alfabeto).
+                if letra.islower(): # Se a letra for minúscula
+                    if novo_codigo < ord('a'):
+                        novo_codigo += 26 # Volta ao final do alfabeto minúsculo
+                elif letra.isupper(): # Se a letra for maiúscula
+                    if novo_codigo < ord('A'):
+                        novo_codigo += 26 # Volta ao final do alfabeto maiúsculo
+                
+                # Convertemos o novo código de volta para uma letra.
+                palavra_decifrada += chr(novo_codigo)
+        else:
+            # Se a palavra tiver 3 ou menos caracteres, mantemo-la como está.
+            palavra_decifrada = palavra_atual
+        
+        # Adicionamos a palavra processada (e um espaço) à nossa mensagem final.
+        mensagem_decifrada += palavra_decifrada + " "
+        
+        # Resetamos a palavra atual para começar a construir a próxima.
+        palavra_atual = ""
+
+# Removemos o espaço extra no final da mensagem.
+mensagem_decifrada = mensagem_decifrada.strip()
+
+
+# ---  EXIBIÇÃO DO RESULTADO FINAL ---
+print("\n--- Mensagem Decifrada ---")
+print(mensagem_decifrada)
+
+# --- FIM DO SCRIPT ---
+
+
+
+
+
+# %%
+# -*- coding: utf-8 -*-
+# ---------------------------------------------------------------------------
+#        EXERCÍCIO: Otimização de Verificação de Sensores
+#        AUTOR: Weslley Soares
+#        DATA: 01/09/2025
+#        DESCRIÇÃO: Este script refatora um código repetitivo para verificar
+#                   a temperatura de múltiplos sensores usando uma lista
+#                   e um único laço de repetição.
+# ---------------------------------------------------------------------------
+
+
+# ---  DADOS DE ENTRADA CENTRALIZADOS ---
+
+# usamos uma única lista para armazenar as temperaturas.
+# Isto torna o código mais limpo e fácil de expandir.
+temperaturas_sensores = [28, 31, 27, 35, 29]
+
+# O limite de temperatura é definido uma única vez.
+LIMITE_TEMPERATURA = 30
+
+
+# ---  LÓGICA DE VERIFICAÇÃO OTIMIZADA ---
+
+print(f"--- A verificar sensores (Limite: {LIMITE_TEMPERATURA}°C) ---")
+
+# Usamos um único laço 'for' para percorrer a lista de temperaturas.
+# 'enumerate()' nos dá o índice (0, 1, 2...) e o valor de cada item.
+for indice, temperatura in enumerate(temperaturas_sensores):
+    
+    # Usamos uma única estrutura condicional que é aplicada a cada temperatura.
+    if temperatura > LIMITE_TEMPERATURA:
+        
+        # O número do sensor é o 'índice + 1' (para começar a contar do 1).
+        # Adicionamos a temperatura lida na mensagem para um alerta mais informativo.
+        print(f"ALERTA: Sensor {indice + 1} acima do limite! (Temperatura: {temperatura}°C)")
+
+print("\n--- Verificação concluída. ---")
+
+# --- FIM DO SCRIPT ---
+# %%
