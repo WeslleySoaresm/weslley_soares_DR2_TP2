@@ -687,7 +687,6 @@ print(mensagem_decifrada)
 
 
 # %%
-# -*- coding: utf-8 -*-
 # ---------------------------------------------------------------------------
 #        EXERCÍCIO: Otimização de Verificação de Sensores
 #        AUTOR: Weslley Soares
