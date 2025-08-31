@@ -1,8 +1,8 @@
 
 ````markdown
-<p align="center">
+<div align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" alt="Python Logo" width="200"/>
-</p>
+</div>
 
 # 🐍 Portfólio de Exercícios de Lógica em Python
 
@@ -13,23 +13,23 @@
 *Uma coleção de scripts desenvolvidos para praticar e demonstrar conceitos fundamentais da programação em Python, desde a manipulação de listas e condicionais até algoritmos de criptografia e refatoração de código.*
 
 ---
-<details>
+
 ## 📜 Índice de Projetos
 
 Este repositório contém os seguintes scripts, cada um focado num desafio de lógica específico:
 
-1.  [🏦 **Classificação de Fraude Bancária**](#-classificação-de-fraude-bancária)
-2.  [👨‍💼 **Avaliação de Elegibilidade para Promoção**](#-avaliação-de-elegibilidade-para-promoção)
-3.  [🚚 **Análise de Risco de Entregas**](#-análise-de-risco-de-entregas)
-4.  [🏭 **Diagnóstico de Alarmes de Máquina**](#-diagnóstico-de-alarmes-de-máquina)
-5.  [📊 **Filtro de Avaliações de Alta Performance**](#-filtro-de-avaliações-de-alta-performance)
-6.  [💰 **Gerador de Lista de Comissões**](#-gerador-de-lista-de-comissões)
-7.  [📡 **Simulador de Tentativas de Conexão**](#-simulador-de-tentativas-de-conexão)
-8.  [📦 **Reorganização de Fila de Pedidos**](#-reorganização-de-fila-de-pedidos)
-9.  [🍎 **Demonstração de Concatenação de Listas**](#-demonstração-de-concatenação-de-listas)
-10. [🧾 **Verificação de Boletos Vencidos**](#-verificação-de-boletos-vencidos)
-11. [🔐 **Decodificador de Cifra de César**](#-decodificador-de-cifra-de-césar)
-12. [🌡️ **Otimização de Verificação de Sensores**](#-otimização-de-verificação-de-sensores)
+1.  [🏦 **Classificação de Fraude Bancária**](#-classificacao-de-fraude-bancaria)
+2.  [👨‍💼 **Avaliação de Elegibilidade para Promoção**](#-avaliacao-de-elegibilidade-para-promocao)
+3.  [🚚 **Análise de Risco de Entregas**](#-analise-de-risco-de-entregas)
+4.  [🏭 **Diagnóstico de Alarmes de Máquina**](#-diagnostico-de-alarmes-de-maquina)
+5.  [📊 **Filtro de Avaliações de Alta Performance**](#-filtro-de-avaliacoes-de-alta-performance)
+6.  [💰 **Gerador de Lista de Comissões**](#-gerador-de-lista-de-comissoes)
+7.  [📡 **Simulador de Tentativas de Conexão**](#-simulador-de-tentativas-de-conexao)
+8.  [📦 **Reorganização de Fila de Pedidos**](#-reorganizacao-de-fila-de-pedidos)
+9.  [🍎 **Demonstração de Concatenação de Listas**](#-demonstracao-de-concatenacao-de-listas)
+10. [🧾 **Verificação de Boletos Vencidos**](#-verificacao-de-boletos-vencidos)
+11. [🔐 **Decodificador de Cifra de César**](#-decodificador-de-cifra-de-cesar)
+12. [🌡️ **Otimização de Verificação de Sensores**](#-otimizacao-de-verificacao-de-sensores)
 
 ---
 
@@ -43,14 +43,14 @@ Este repositório contém os seguintes scripts, cada um focado num desafio de l�
 <summary>Clique para ver o código de exemplo</summary>
 
 ```python
-# ...
 limite_da_transferencia = 1000 * ANO_2_DIGITOS
-# ...
+valor_transacao = int(input("Digite o valor da transação:\n"))
+tipo_transacao = input("\nTipo de Transação (Pix, Transferencia, Saque)").lower()
+
 if valor_transacao > limite_da_transferencia and tipo_transacao == "transferencia":
     print("\nALERTA!!! Verificar origem da transferência.")
 elif tipo_transacao == "saque":
     print("\nAlerta!! Confirmar com o cliente.")
-# ...
 ````
 
 \</details\>
@@ -119,15 +119,16 @@ elif tipo_transacao == "saque":
 \<summary\>Clique para ver o código de exemplo\</summary\>
 
 ```python
-# ...
+chave = texto_cifrado.count('D') + texto_cifrado.count('d') + texto_cifrado.count('W')
+
 if len(palavra_atual) > 3:
     for letra in palavra_atual:
         novo_codigo = ord(letra) - chave
-        # ... lógica de wrap-around ...
+        if letra.islower():
+            if novo_codigo < ord('a'): novo_codigo += 26
+        elif letra.isupper():
+            if novo_codigo < ord('A'): novo_codigo += 26
         palavra_decifrada += chr(novo_codigo)
-else:
-    palavra_decifrada = palavra_atual
-# ...
 ```
 
 \</details\>
@@ -142,12 +143,12 @@ else:
 
 ## 🛠️ Como Executar os Scripts
 
-Cada exercício está contido num bloco `#%% ... %%` e pode ser executado individualmente.
+Cada exercício está documentado no código-fonte e pode ser executado individualmente.
 
 1.  **Pré-requisitos:**
 
       * Certifique-se de que tem o **Python 3** instalado.
-      * Instale a biblioteca `tabulate` (usada em alguns scripts) com o comando:
+      * Instale as bibliotecas externas necessárias (usadas em alguns scripts) com o comando:
         ```bash
         pip3 install tabulate
         ```
@@ -162,8 +163,9 @@ Cada exercício está contido num bloco `#%% ... %%` e pode ser executado indivi
 
 -----
 
-
 <!-- end list -->
 
 ```
-```
+
+---
+
