@@ -1,5 +1,4 @@
 
-````markdown
 <div align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" alt="Python Logo" width="200"/>
 </div>
