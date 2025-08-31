@@ -13,7 +13,7 @@
 *Uma coleção de scripts desenvolvidos para praticar e demonstrar conceitos fundamentais da programação em Python, desde a manipulação de listas e condicionais até algoritmos de criptografia e refatoração de código.*
 
 ---
-
+<details>
 ## 📜 Índice de Projetos
 
 Este repositório contém os seguintes scripts, cada um focado num desafio de lógica específico:
