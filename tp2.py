@@ -368,4 +368,135 @@ else:
     print(f"\nLimite de {limite_tentativas} tentativas atingido. Conexão falhou.")
 
 # --- FIM DO SCRIPT ---
+
+
+
+
+
+
+
+
+
+
 # %%
+# ---------------------------------------------------------------------------
+#        EXERCÍCIO: Reorganização de Fila de Pedidos
+#        AUTOR: Weslley Soares
+#        DATA: 31/08/2025
+#        DESCRIÇÃO: Este script simula a reorganização de uma fila de
+#                   pedidos com base em regras de negócio. Ele demonstra
+#                   a manipulação de listas (inserção e substituição)
+#                   usando estruturas condicionais.
+# ---------------------------------------------------------------------------
+
+print("--- CENÁRIO A: Pedido Urgente ---")
+
+# ---  Definição das Variáveis Iniciais ---
+pedidos = ["P123", "P456", "P789"]
+pedido_a_substituir = "P456"
+prioridade_urgente = True  # A condição principal para este cenário
+pedido_urgente = "P999"
+
+print(f"Fila inicial: {pedidos}")
+
+# ---  Lógica de Decisão ---
+
+# Como 'prioridade_urgente' é True, este bloco 'if' será executado.
+if prioridade_urgente:
+    # O método .insert(0, ...) adiciona um item na primeira posição (índice 0).
+    pedidos.insert(0, pedido_urgente)
+    print("Ação: Pedido urgente inserido no início da fila.")
+else:
+    # Este bloco não será executado neste cenário.
+    if pedido_a_substituir in pedidos:
+        indice = pedidos.index(pedido_a_substituir)
+        pedidos[indice] = pedido_urgente
+    else:
+        print(f"Ação: Pedido {pedido_a_substituir} não encontrado para substituição.")
+
+# --- Resultado Final ---
+print(f"Fila final (Cenário A): {pedidos}\n")
+
+#---------------------------------------------------------
+
+print("--- CENÁRIO B: Não Urgente, Pedido Existe ---")
+
+# ---  Definição das Variáveis Iniciais ---
+pedidos = ["P123", "P456", "P789"]
+pedido_a_substituir = "P456" # Este pedido EXISTE na lista
+prioridade_urgente = False # A condição principal para este cenário
+pedido_urgente = "P999"
+
+print(f"Fila inicial: {pedidos}")
+
+# ---  Lógica de Decisão ---
+
+# Como 'prioridade_urgente' é False, o bloco 'else' será executado.
+if prioridade_urgente:
+    pedidos.insert(0, pedido_urgente)
+else:
+    # Verificamos se o pedido a ser substituído realmente está na lista.
+    if pedido_a_substituir in pedidos:
+        # Encontramos o índice (posição) do pedido a ser substituído.
+        indice = pedidos.index(pedido_a_substituir)
+        # Atribuímos o novo valor ('pedido_urgente') a essa posição.
+        pedidos[indice] = pedido_urgente
+        print(f"Ação: Pedido {pedido_a_substituir} substituído por {pedido_urgente}.")
+    else:
+        print(f"Ação: Pedido {pedido_a_substituir} não encontrado para substituição.")
+
+# ---  Resultado Final ---
+print(f"Fila final (Cenário B): {pedidos}\n")
+
+#-----------------------------------------------------------------
+
+print("--- CENÁRIO C: Não Urgente, Pedido Não Existe ---")
+
+# ---  Definição das Variáveis Iniciais ---
+pedidos = ["P123", "P456", "P789"]
+pedido_a_substituir = "P000" # Este pedido NÃO EXISTE na lista
+prioridade_urgente = False # A condição principal para este cenário
+pedido_urgente = "P999"
+
+print(f"Fila inicial: {pedidos}")
+
+# ---  Lógica de Decisão ---
+
+# O bloco 'else' será executado.
+if prioridade_urgente:
+    pedidos.insert(0, pedido_urgente)
+else:
+    # A verificação 'pedido_a_substituir in pedidos' dará False.
+    if pedido_a_substituir in pedidos:
+        indice = pedidos.index(pedido_a_substituir)
+        pedidos[indice] = pedido_urgente
+    else:
+        # O programa entra neste bloco e exibe a mensagem pedida.
+        print(f"Ação: Pedido {pedido_a_substituir} não encontrado para substituição. A fila não foi alterada.")
+
+# --- Resultado Final ---
+    print(f"Fila final (Cenário C): {pedidos}\n")
+
+# --- FIM DO SCRIPT ---
+# %%
+
+
+
+produtos_a = ["banana", "maçã"]
+produtos_b = ["laranja", "pera"]
+produtos_c = ["laranja", "banana", "maçã", "romã"]
+
+print(f"Lista (A) tem : {len(produtos_a)}" )
+print(f"Lista (b) tem : {len(produtos_b)}" )
+print(f"Lista (c) tem : {len(produtos_c)}" )
+
+
+estoque_total = produtos_a + produtos_b + produtos_c
+
+print(f"Lista (Total) tem : {len(estoque_total)}" )
+
+print(estoque_total)
+
+
+# %%
+
